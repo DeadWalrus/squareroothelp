@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 /*
- * Class responsible for getting user input
+ * Class responsible for all gui elements
  */
 public class UI {
     public static int GetIntInput(Scanner input) {
