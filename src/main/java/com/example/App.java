@@ -8,7 +8,7 @@ public final class App {
     }
 
     /**
-     * Says hello to the world.
+     * Finds factors and perfect squares for inputted number
      *
      * @param args The arguments of the program.
      */
