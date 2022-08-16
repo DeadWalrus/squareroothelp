@@ -61,6 +61,7 @@ class Faps {
                 }
             }
         }
+        Arrays.sort(squares);
         return squares;
     }
 
