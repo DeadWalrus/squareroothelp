@@ -53,5 +53,7 @@ public final class UI extends Application{
     }
     private void setButtonControls() {  // Set the actions for the buttons
         UIComponents.buttons.get("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
+        UIComponents.textFields.get("Enter number").setOnMouseClicked(UIControls.textFieldClear);
+        UIComponents.textFields.get("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
     }
 }
