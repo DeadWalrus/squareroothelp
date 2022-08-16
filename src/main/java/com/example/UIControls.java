@@ -50,7 +50,7 @@ public class UIControls {
         // Append factors to text area
         for (BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(factors.size())) < 0; i = i.add(BigInteger.ONE)) {
             for (BigInteger j = BigInteger.valueOf(0); j.compareTo(BigInteger.valueOf(factors.get(0).size())) < 0; j = j.add(BigInteger.ONE)) {
-                UIComponents.textAreas.get("Factors").appendText(factors.get(Integer.valueOf(i.toString())).get(Integer.valueOf(j.toString())).toString());
+                UIComponents.textAreas.get("Factors").appendText(factors.get(i.intValue()).get(j.intValue()).toString());
                 if(j.compareTo(BigInteger.ZERO) == 0) UIComponents.textAreas.get("Factors").appendText(", ");
             }
             UIComponents.textAreas.get("Factors").appendText("\n");
@@ -59,8 +59,8 @@ public class UIControls {
         // Append perfect squares to text area
         for(BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(squares.size())) < 0; i = i.add(BigInteger.ONE)) {
             BigInteger square = squares.get(Integer.valueOf(i.toString()));
-            UIComponents.textAreas.get("Perfect Squares").appendText(square.toString());/*String.format("%d\t\u2192\t", square));*/
-            UIComponents.textAreas.get("Perfect Squares").appendText("\t" + square.sqrt().toString());/*String.format("%d ", square.sqrt()));*/
+            UIComponents.textAreas.get("Perfect Squares").appendText(square.toString());
+            UIComponents.textAreas.get("Perfect Squares").appendText("\t" + square.sqrt().toString());
             UIComponents.textAreas.get("Perfect Squares").appendText("\n");
 
         }
