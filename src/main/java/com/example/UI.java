@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
  * Class responsible for all gui elements
  */
 public final class UI extends Application{
+
     private final int MAX_HEIGHT = 500;
     private final int MAX_WIDTH = 500;
     private final int HGAP = 10;
@@ -15,6 +16,7 @@ public final class UI extends Application{
     private final int TEXTWIDTH = 200;
     private final boolean SHOWGRIDLINES = false;
     private GridPane mainPane = new GridPane();
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -32,8 +34,8 @@ public final class UI extends Application{
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    private void setLayout() {  // Set the layout 
+    // Set the layout of the gui
+    private void setLayout() {  
         
         mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
         mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
@@ -44,6 +46,7 @@ public final class UI extends Application{
 
     }
 
+    // Declare the components and their properties
     private void declareComponentsAndSetProperties() {
         UIComponents.newButton("Find");
         UIComponents.newLabel("Enter Number");
@@ -55,7 +58,9 @@ public final class UI extends Application{
         UIComponents.textAreas.get("Factors").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
         UIComponents.textAreas.get("Perfect Squares").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
     }
-    private void setButtonControls() {  // Set the actions for the buttons
+
+    // Set the actions for elements when interacted with
+    private void setButtonControls() {  
         UIComponents.buttons.get("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         UIComponents.textFields.get("Enter number").setOnMouseClicked(UIControls.textFieldClear);
         UIComponents.textFields.get("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
