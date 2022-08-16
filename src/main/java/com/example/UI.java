@@ -19,20 +19,30 @@ public final class UI extends Application{
         launch(args);
     }
     public void start(Stage primaryStage){
+        declareComponentsAndSetProperties();
+        setButtonControls();
+        setLayout();
         mainPane.setGridLinesVisible(SHOWGRIDLINES); //debug stuff
         mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
         mainPane.setHgap(HGAP);
         mainPane.setVgap(VGAP);
-        setLayout();
-        setButtonControls();
         Scene scene = new Scene(mainPane);
-        primaryStage.setResizable(false);
+        //primaryStage.setAlwaysOnTop(true);
+        primaryStage.setResizable(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     private void setLayout() {  // Set the layout 
         
+        mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
+        mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
+        mainPane.add(UIComponents.textAreas.get("Factors"), 0, 3);
+        mainPane.add(UIComponents.textAreas.get("Perfect Squares"), 2, 3);
+
+    }
+
+    private void declareComponentsAndSetProperties() {
         UIComponents.newButton("Find");
         UIComponents.newLabel("Enter Number");
         UIComponents.newTextField("Enter number");
@@ -40,12 +50,6 @@ public final class UI extends Application{
         UIComponents.newTextArea("Perfect Squares");
         UIComponents.textAreas.get("Factors").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
         UIComponents.textAreas.get("Perfect Squares").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
-
-        mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
-        mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
-        mainPane.add(UIComponents.textAreas.get("Factors"), 0, 3);
-        mainPane.add(UIComponents.textAreas.get("Perfect Squares"), 2, 3);
-
     }
     private void setButtonControls() {  // Set the actions for the buttons
         UIComponents.buttons.get("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
