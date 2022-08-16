@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.regex.Pattern;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -54,14 +56,16 @@ public class UIControls {
         // Append perfect squares to text area
         for(int i = 0; i < squares.length; i++) {
             int square = squares[i];
-            UIComponents.textAreas.get("Perfect Squares").appendText(Integer.toString(square));
-            UIComponents.textAreas.get("Perfect Squares").appendText("\t=> " + (int)Math.sqrt(square));
+            UIComponents.textAreas.get("Perfect Squares").appendText(String.format("%d\t\u2192\t", square));
+            UIComponents.textAreas.get("Perfect Squares").appendText(String.format("%d ", (int)Math.sqrt(square)));
             UIComponents.textAreas.get("Perfect Squares").appendText("\n");
 
         }
     };
 
     public static EventHandler<MouseEvent> textFieldClear = (MouseEvent e) -> {
-        UIComponents.textFields.get("Enter number").clear();
+        System.out.println(UIComponents.textFields.get("Enter number").getText());
+        if(Pattern.matches("[^0-9]+", UIComponents.textFields.get("Enter number").getText())) 
+            UIComponents.textFields.get("Enter number").clear();
     };
 }
