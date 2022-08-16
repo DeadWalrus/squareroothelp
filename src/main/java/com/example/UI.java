@@ -37,6 +37,8 @@ public final class UI extends Application{
         
         mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
         mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
+        mainPane.add(UIComponents.labels.get("Factors"), 0, 2);
+        mainPane.add(UIComponents.labels.get("Perfect squares"), 2, 2);
         mainPane.add(UIComponents.textAreas.get("Factors"), 0, 3);
         mainPane.add(UIComponents.textAreas.get("Perfect Squares"), 2, 3);
 
@@ -46,6 +48,8 @@ public final class UI extends Application{
         UIComponents.newButton("Find");
         UIComponents.newLabel("Enter Number");
         UIComponents.newTextField("Enter number");
+        UIComponents.newLabel("Factors");
+        UIComponents.newLabel("Perfect squares");
         UIComponents.newTextArea("Factors");
         UIComponents.newTextArea("Perfect Squares");
         UIComponents.textAreas.get("Factors").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
