@@ -46,14 +46,16 @@ public class UIControls {
         for (int i = 0; i < factors.length; i++) {
             for (int j = 0; j < factors[0].length; j++) {
                 UIComponents.textAreas.get("Factors").appendText(Integer.toString(factors[i][j]));
-                UIComponents.textAreas.get("Factors").appendText(", ");
+                if(j == 0) UIComponents.textAreas.get("Factors").appendText(", ");
             }
             UIComponents.textAreas.get("Factors").appendText("\n");
         }
 
         // Append perfect squares to text area
         for(int i = 0; i < squares.length; i++) {
-            UIComponents.textAreas.get("Perfect Squares").appendText(Integer.toString(squares[i]));
+            int square = squares[i];
+            UIComponents.textAreas.get("Perfect Squares").appendText(Integer.toString(square));
+            UIComponents.textAreas.get("Perfect Squares").appendText("\t=> " + (int)Math.sqrt(square));
             UIComponents.textAreas.get("Perfect Squares").appendText("\n");
 
         }
