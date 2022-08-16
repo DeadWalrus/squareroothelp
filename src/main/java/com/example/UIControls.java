@@ -1,6 +1,8 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+import java.math.BigInteger;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,14 +10,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
+
 public class UIControls {
     /*
      * Find factors and perfect squares, then output to textAreas
      */
     public static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) ->{
-        int [][] factors = null;
-        int [] squares = null;
-        int input = 0;
+        ArrayList<ArrayList<BigInteger>> factors = null;
+        ArrayList<BigInteger> squares = null;
+        BigInteger input = BigInteger.valueOf(0);
 
         // Check if textField is empty
         if(UIComponents.textFields.get("Enter number").getText().equals("")) {
@@ -27,17 +30,17 @@ public class UIControls {
 
         // Try to convert textField string to int
         try {
-            input = Integer.parseInt(UIComponents.textFields.get("Enter number").getText());
+            input = new BigInteger(UIComponents.textFields.get("Enter number").getText());
         } catch (NumberFormatException ex) {
             Alert alert = new Alert(AlertType.ERROR, "Could not convert from string to int");
             alert.showAndWait();
-            System.out.println("Could not convert from int to String");
+            System.out.println("Could not convert from string to int");
             return;
         }
         
         
         factors = Faps.findFactors(input);
-        squares = Faps.findPerfectSquares(input);
+        squares = Faps.findPerfectSquares(factors);
         
 
         // Clear default text in text areas
@@ -45,19 +48,19 @@ public class UIControls {
         UIComponents.textAreas.get("Perfect Squares").clear();
 
         // Append factors to text area
-        for (int i = 0; i < factors.length; i++) {
-            for (int j = 0; j < factors[0].length; j++) {
-                UIComponents.textAreas.get("Factors").appendText(Integer.toString(factors[i][j]));
-                if(j == 0) UIComponents.textAreas.get("Factors").appendText(", ");
+        for (BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(factors.size())) < 0; i = i.add(BigInteger.ONE)) {
+            for (BigInteger j = BigInteger.valueOf(0); j.compareTo(BigInteger.valueOf(factors.get(0).size())) < 0; j = j.add(BigInteger.ONE)) {
+                UIComponents.textAreas.get("Factors").appendText(factors.get(Integer.valueOf(i.toString())).get(Integer.valueOf(j.toString())).toString());
+                if(j.compareTo(BigInteger.ZERO) == 0) UIComponents.textAreas.get("Factors").appendText(", ");
             }
             UIComponents.textAreas.get("Factors").appendText("\n");
         }
 
         // Append perfect squares to text area
-        for(int i = 0; i < squares.length; i++) {
-            int square = squares[i];
-            UIComponents.textAreas.get("Perfect Squares").appendText(String.format("%d\t\u2192\t", square));
-            UIComponents.textAreas.get("Perfect Squares").appendText(String.format("%d ", (int)Math.sqrt(square)));
+        for(BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(squares.size())) < 0; i = i.add(BigInteger.ONE)) {
+            BigInteger square = squares.get(Integer.valueOf(i.toString()));
+            UIComponents.textAreas.get("Perfect Squares").appendText(square.toString());/*String.format("%d\t\u2192\t", square));*/
+            UIComponents.textAreas.get("Perfect Squares").appendText("\t" + square.sqrt().toString());/*String.format("%d ", square.sqrt()));*/
             UIComponents.textAreas.get("Perfect Squares").appendText("\n");
 
         }
