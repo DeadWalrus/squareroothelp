@@ -6,6 +6,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class UIControls {
+
+    /*
+     * TODO
+     * Create HashMap for controls
+     */
     public static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) ->{
         int [][] factors = null;
         int [] squares = null;
