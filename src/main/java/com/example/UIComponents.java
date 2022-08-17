@@ -25,6 +25,6 @@ public class UIComponents {
     }
 
     public static void newTextArea(String name) {
-        textAreas.put(name, new TextArea(name));
+        textAreas.put(name, new TextArea());
     }
 }
