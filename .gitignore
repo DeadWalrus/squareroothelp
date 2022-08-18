@@ -1,3 +1,6 @@
 /mvnw
 /mvnw.cmd
 /target
+.vscode
+/.mvn
+.editorconfig
