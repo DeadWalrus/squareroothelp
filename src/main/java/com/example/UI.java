@@ -1,12 +1,17 @@
 package com.example;
+
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+
 /*
  * Class responsible for all gui elements
  */
-public final class UI extends Application{
+public final class UI extends Application {
 
     private final int MAX_HEIGHT = 500;
     private final int MAX_WIDTH = 500;
@@ -15,28 +20,34 @@ public final class UI extends Application{
     private final int TEXTHEIGHT = 400;
     private final int TEXTWIDTH = 200;
     private final boolean SHOWGRIDLINES = false;
+    private final boolean RESIZABLE = false;
+    private final File icon = new File("resources/mono-math-sqrt.png");
+    private final Image iconImage = new Image(icon.toURI().toString());
     private GridPane mainPane = new GridPane();
 
     public static void main(String[] args) {
         launch(args);
     }
-    public void start(Stage primaryStage){
+
+    public void start(Stage primaryStage) {
         declareComponentsAndSetProperties();
         setButtonControls();
         setLayout();
-        mainPane.setGridLinesVisible(SHOWGRIDLINES); //debug stuff
+        mainPane.setGridLinesVisible(SHOWGRIDLINES); // debug stuff
         mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
         mainPane.setHgap(HGAP);
         mainPane.setVgap(VGAP);
         Scene scene = new Scene(mainPane);
-        //primaryStage.setAlwaysOnTop(true);
-        primaryStage.setResizable(true);
+        primaryStage.getIcons().add(iconImage);
+        primaryStage.setTitle("Factor and Perfect Square Finder");
+        primaryStage.setResizable(RESIZABLE);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     // Set the layout of the gui
-    private void setLayout() {  
-        
+    private void setLayout() {
+
         mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
         mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
         mainPane.add(UIComponents.labels.get("Factors"), 0, 2);
@@ -55,12 +66,12 @@ public final class UI extends Application{
         UIComponents.newLabel("Perfect squares");
         UIComponents.newTextArea("Factors");
         UIComponents.newTextArea("Perfect Squares");
-        UIComponents.textAreas.get("Factors").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
-        UIComponents.textAreas.get("Perfect Squares").setPrefSize((double)TEXTWIDTH, (double)TEXTHEIGHT);
+        UIComponents.textAreas.get("Factors").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
+        UIComponents.textAreas.get("Perfect Squares").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
     }
 
     // Set the actions for elements when interacted with
-    private void setButtonControls() {  
+    private void setButtonControls() {
         UIComponents.buttons.get("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         UIComponents.textFields.get("Enter number").setOnMouseClicked(UIControls.textFieldClear);
         UIComponents.textFields.get("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
