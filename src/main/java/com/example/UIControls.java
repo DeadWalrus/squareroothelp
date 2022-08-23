@@ -11,8 +11,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
 public class UIControls {
+
     /*
-     * Find factors and perfect squares, then output to textAreas
+     * TODO
+     * Create HashMap for controls
      */
     public static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
         ArrayList<ArrayList<BigInteger>> factors = null;
