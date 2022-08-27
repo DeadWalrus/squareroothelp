@@ -14,7 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
 class UIControls {
-    static UIComponents comps = new UIComponents();
+    static UIComponents comps = UI.getComponents();
     /*
      * TODO
      * Create HashMap for controls

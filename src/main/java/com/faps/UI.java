@@ -26,6 +26,7 @@ public final class UI extends Application {
     private final File icon = new File("resources/mono-math-sqrt.png");
     private final Image iconImage = new Image(icon.toURI().toString());
     private GridPane mainPane = new GridPane();
+    private static UIComponents comps = new UIComponents();
 
     public static void main(String[] args) {
         launch(args);
@@ -50,32 +51,36 @@ public final class UI extends Application {
     // Set the layout of the gui
     private void setLayout() {
 
-        mainPane.add(UIComponents.buttons.get("Find"), 1, 0);
-        mainPane.add(UIComponents.textFields.get("Enter number"), 0, 0);
-        mainPane.add(UIComponents.labels.get("Factors"), 0, 2);
-        mainPane.add(UIComponents.labels.get("Perfect squares"), 2, 2);
-        mainPane.add(UIComponents.textAreas.get("Factors"), 0, 3);
-        mainPane.add(UIComponents.textAreas.get("Perfect Squares"), 2, 3);
+        mainPane.add(comps.getButton("Find"), 1, 0);
+        mainPane.add(comps.getTextField("Enter number"), 0, 0);
+        mainPane.add(comps.getLabel("Factors"), 0, 2);
+        mainPane.add(comps.getLabel("Perfect squares"), 2, 2);
+        mainPane.add(comps.getTextArea("Factors"), 0, 3);
+        mainPane.add(comps.getTextArea("Perfect Squares"), 2, 3);
 
     }
 
     // Declare the components and their properties
     private void declareComponentsAndSetProperties() {
-        UIComponents.newButton("Find");
-        UIComponents.newLabel("Enter Number");
-        UIComponents.newTextField("Enter number");
-        UIComponents.newLabel("Factors");
-        UIComponents.newLabel("Perfect squares");
-        UIComponents.newTextArea("Factors");
-        UIComponents.newTextArea("Perfect Squares");
-        UIComponents.textAreas.get("Factors").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
-        UIComponents.textAreas.get("Perfect Squares").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
+        comps.newButton("Find");
+        comps.newLabel("Enter Number");
+        comps.newTextField("Enter number");
+        comps.newLabel("Factors");
+        comps.newLabel("Perfect squares");
+        comps.newTextArea("Factors");
+        comps.newTextArea("Perfect Squares");
+        comps.getTextArea("Factors").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
+        comps.getTextArea("Perfect Squares").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
     }
 
     // Set the actions for elements when interacted with
     private void setButtonControls() {
-        UIComponents.buttons.get("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
-        UIComponents.textFields.get("Enter number").setOnMouseClicked(UIControls.textFieldClear);
-        UIComponents.textFields.get("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
+        comps.getButton("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
+        comps.getTextField("Enter number").setOnMouseClicked(UIControls.textFieldClear);
+        comps.getTextField("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
+    }
+
+    public static UIComponents getComponents() {
+        return comps;
     }
 }
