@@ -15,10 +15,7 @@ import javafx.scene.input.MouseEvent;
 
 class UIControls {
     static UIComponents comps = UI.getComponents();
-    /*
-     * TODO
-     * Create HashMap for controls
-     */
+
     protected static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
         ArrayList<ArrayList<BigInteger>> factors = null;
         ArrayList<BigInteger> squares = null;
