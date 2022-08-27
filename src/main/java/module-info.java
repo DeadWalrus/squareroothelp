@@ -1,5 +1,5 @@
 module squareroothelp {
-    opens com.example;
-    exports com.example to javafx.graphics;
+    opens com.faps;
+    exports com.faps to javafx.graphics;
     requires transitive javafx.controls;
 }
