@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 
 /*
- * Class responsible for all gui elements
+ * Class responsible for all gui elements of main interface
  */
 public final class UI extends Application {
 
