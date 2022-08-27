@@ -3,9 +3,9 @@ package com.faps;
 import java.io.File;
 
 import com.uicomponents.UIComponents;
-import com.interfaces.UserInterface;
 
-import javafx.application.Application;
+
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -14,26 +14,24 @@ import javafx.scene.layout.GridPane;
 /*
  * Class responsible for all gui elements of main interface
  */
-public final class UI extends Application implements UserInterface {
+public final class UI {
 
-    private final int MAX_HEIGHT = 500;
-    private final int MAX_WIDTH = 500;
-    private final int HGAP = 10;
-    private final int VGAP = 10;
-    private final int TEXTHEIGHT = 400;
-    private final int TEXTWIDTH = 200;
-    private final boolean SHOWGRIDLINES = false;
-    private final boolean RESIZABLE = false;
-    private final File icon = new File("resources/mono-math-sqrt.png");
-    private final Image iconImage = new Image(icon.toURI().toString());
-    private GridPane mainPane = new GridPane();
+    private final static int MAX_HEIGHT = 500;
+    private final static int MAX_WIDTH = 500;
+    private final static int HGAP = 10;
+    private final static int VGAP = 10;
+    private final static int TEXTHEIGHT = 400;
+    private final static int TEXTWIDTH = 200;
+    private final static boolean SHOWGRIDLINES = false;
+    private final static boolean RESIZABLE = false;
+    private final static File icon = new File("resources/mono-math-sqrt.png");
+    private final static Image iconImage = new Image(icon.toURI().toString());
+    private static GridPane mainPane = new GridPane();
     private static UIComponents comps = new UIComponents();
+    private static Scene scene = new Scene(mainPane);
+    private static Stage primaryStage = new Stage();
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    public void start(Stage primaryStage) {
+    public static void initUI() {
         declareComponentsAndSetProperties();
         setControls();
         setLayout();
@@ -41,7 +39,6 @@ public final class UI extends Application implements UserInterface {
         mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
         mainPane.setHgap(HGAP);
         mainPane.setVgap(VGAP);
-        Scene scene = new Scene(mainPane);
         primaryStage.getIcons().add(iconImage);
         primaryStage.setTitle("Factor and Perfect Square Finder");
         primaryStage.setResizable(RESIZABLE);
@@ -50,8 +47,8 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Set the layout of the gui
-    @Override
-    public void setLayout() {
+    
+    public static void setLayout() {
 
         mainPane.add(comps.getButton("Find"), 1, 0);
         mainPane.add(comps.getTextField("Enter number"), 0, 0);
@@ -63,8 +60,8 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Declare the components and their properties
-    @Override
-    public void declareComponentsAndSetProperties() {
+    
+    public static void declareComponentsAndSetProperties() {
         comps.newButton("Find");
         comps.newLabel("Enter Number");
         comps.newTextField("Enter number");
@@ -77,8 +74,8 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Set the actions for elements when interacted with
-    @Override
-    public void setControls() {
+    
+    public static void setControls() {
         comps.getButton("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         comps.getTextField("Enter number").setOnMouseClicked(UIControls.textFieldClear);
         comps.getTextField("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
@@ -86,5 +83,9 @@ public final class UI extends Application implements UserInterface {
 
     public static UIComponents getComponents() {
         return comps;
+    }
+
+    public static Scene getScene() {
+        return scene;
     }
 }
