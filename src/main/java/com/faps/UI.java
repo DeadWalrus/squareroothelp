@@ -3,6 +3,7 @@ package com.faps;
 import java.io.File;
 
 import com.uicomponents.UIComponents;
+import com.interfaces.UserInterface;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -13,7 +14,7 @@ import javafx.scene.layout.GridPane;
 /*
  * Class responsible for all gui elements of main interface
  */
-public final class UI extends Application {
+public final class UI extends Application implements UserInterface {
 
     private final int MAX_HEIGHT = 500;
     private final int MAX_WIDTH = 500;
@@ -34,7 +35,7 @@ public final class UI extends Application {
 
     public void start(Stage primaryStage) {
         declareComponentsAndSetProperties();
-        setButtonControls();
+        setControls();
         setLayout();
         mainPane.setGridLinesVisible(SHOWGRIDLINES); // debug stuff
         mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
@@ -49,7 +50,7 @@ public final class UI extends Application {
     }
 
     // Set the layout of the gui
-    private void setLayout() {
+    public void setLayout() {
 
         mainPane.add(comps.getButton("Find"), 1, 0);
         mainPane.add(comps.getTextField("Enter number"), 0, 0);
@@ -61,7 +62,7 @@ public final class UI extends Application {
     }
 
     // Declare the components and their properties
-    private void declareComponentsAndSetProperties() {
+    public void declareComponentsAndSetProperties() {
         comps.newButton("Find");
         comps.newLabel("Enter Number");
         comps.newTextField("Enter number");
@@ -74,7 +75,7 @@ public final class UI extends Application {
     }
 
     // Set the actions for elements when interacted with
-    private void setButtonControls() {
+    public void setControls() {
         comps.getButton("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         comps.getTextField("Enter number").setOnMouseClicked(UIControls.textFieldClear);
         comps.getTextField("Enter number").setOnAction(UIControls.findFactorsAndPerfectSquares);
