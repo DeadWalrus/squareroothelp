@@ -8,7 +8,7 @@ class Faps {
     /*
      * Find the factors of num and return an array containing those factors
      */
-    public static ArrayList<ArrayList<BigInteger>> findFactors(BigInteger num) {
+    protected static ArrayList<ArrayList<BigInteger>> findFactors(BigInteger num) {
         System.out.println(num);
         ArrayList<ArrayList<BigInteger>> factors = new ArrayList<ArrayList<BigInteger>>();
 
@@ -32,7 +32,7 @@ class Faps {
     /*
      * Find the perfect squares and return an array containing those squares
      */
-    public static ArrayList<BigInteger> findPerfectSquares(ArrayList<ArrayList<BigInteger>> fact) {
+    protected static ArrayList<BigInteger> findPerfectSquares(ArrayList<ArrayList<BigInteger>> fact) {
 
         ArrayList<BigInteger> squares = new ArrayList<BigInteger>();
         ArrayList<ArrayList<BigInteger>> factors = fact;

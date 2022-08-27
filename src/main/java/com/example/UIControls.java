@@ -10,13 +10,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
-public class UIControls {
+class UIControls {
 
     /*
      * TODO
      * Create HashMap for controls
      */
-    public static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
+    protected static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
         ArrayList<ArrayList<BigInteger>> factors = null;
         ArrayList<BigInteger> squares = null;
         BigInteger input = BigInteger.valueOf(0);
@@ -71,7 +71,7 @@ public class UIControls {
     };
 
     // Clear text field if it contains only alpha characters
-    public static EventHandler<MouseEvent> textFieldClear = (MouseEvent e) -> {
+    protected static EventHandler<MouseEvent> textFieldClear = (MouseEvent e) -> {
         System.out.println(UIComponents.textFields.get("Enter number").getText());
         if (Pattern.matches("[^0-9]+", UIComponents.textFields.get("Enter number").getText()))
             UIComponents.textFields.get("Enter number").clear();
