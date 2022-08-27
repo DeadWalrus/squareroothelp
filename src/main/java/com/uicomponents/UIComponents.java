@@ -1,4 +1,4 @@
-package com.faps;
+package com.uicomponents;
 
 import java.util.HashMap;
 
@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-class UIComponents {
+public class UIComponents {
     protected static HashMap<String, Button> buttons = new HashMap<String, Button>();
     protected static HashMap<String, Label> labels = new HashMap<String, Label>();
     protected static HashMap<String, TextField> textFields = new HashMap<String, TextField>();

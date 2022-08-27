@@ -2,6 +2,8 @@ package com.faps;
 
 import java.io.File;
 
+import com.uicomponents.UIComponents;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
