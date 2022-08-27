@@ -50,6 +50,7 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Set the layout of the gui
+    @Override
     public void setLayout() {
 
         mainPane.add(comps.getButton("Find"), 1, 0);
@@ -62,6 +63,7 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Declare the components and their properties
+    @Override
     public void declareComponentsAndSetProperties() {
         comps.newButton("Find");
         comps.newLabel("Enter Number");
@@ -75,6 +77,7 @@ public final class UI extends Application implements UserInterface {
     }
 
     // Set the actions for elements when interacted with
+    @Override
     public void setControls() {
         comps.getButton("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         comps.getTextField("Enter number").setOnMouseClicked(UIControls.textFieldClear);
