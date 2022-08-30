@@ -1,7 +1,8 @@
 package com.main;
+
 import com.uicomponents.UIComponents;
 import com.interfaces.UserInterface;
-import com.faps.UI;
+
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -54,7 +55,7 @@ public class Home extends Application implements UserInterface{
     public void setControls() {
         // TODO Auto-generated method stub
         comps.getButton("faps").setOnAction((e) -> {
-            UI.initUI();
+            com.faps.UI.initUI();
         });
         
     }
