@@ -53,7 +53,6 @@ public class Home extends Application implements UserInterface{
 
     @Override
     public void setControls() {
-        // TODO Auto-generated method stub
         comps.getButton("faps").setOnAction((e) -> {
             com.faps.UI.initUI();
         });
