@@ -76,7 +76,7 @@
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
         <configuration>
-          <mainClass>squareroothelp/com.example.StartFX</mainClass>
+          <mainClass>squareroothelp/com.main.StartFX</mainClass>
         </configuration>
       </plugin>
 
@@ -85,7 +85,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.example.StartFX</mainClass>
+              <mainClass>com.main.StartFX</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
@@ -95,13 +95,13 @@
         <executions>
           <execution>
             <id>make-jar-with-dependencies</id>
-            
+
           </execution>
         </executions>
       </plugin>
-      
+
     </plugins>
-    <pluginManagement></pluginManagement>
+    <pluginManagement/>
   </build>
   <reporting>
     <plugins>
