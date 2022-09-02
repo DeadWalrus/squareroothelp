@@ -14,10 +14,10 @@ public final class UI{
     private final static int VGAP = 10;
     private final static boolean SHOWGRIDLINES = false;
     private final static boolean RESIZABLE = false;
-    private static GridPane mainPane = new GridPane();
-    private static UIComponents comps = new UIComponents();
-    private static Scene scene = new Scene(mainPane);
-    private static Stage primaryStage = new Stage();
+    private final static GridPane mainPane = new GridPane();
+    private final static UIComponents comps = new UIComponents();
+    private final static Scene scene = new Scene(mainPane);
+    private final static Stage primaryStage = new Stage();
 
     public static void initUI() {
         declareComponentsAndSetProperties();
