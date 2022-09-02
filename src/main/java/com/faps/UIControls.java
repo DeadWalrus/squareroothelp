@@ -16,6 +16,9 @@ import javafx.scene.input.MouseEvent;
 class UIControls {
     static UIComponents comps = UI.getComponents();
 
+    /*TODO: Make lambda call a function that finds the factors and perfect squares
+            instead of doing it all in lambda function
+    */
     protected static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
         ArrayList<ArrayList<BigInteger>> factors = null;
         ArrayList<BigInteger> squares = null;
