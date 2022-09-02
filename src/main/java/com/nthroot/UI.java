@@ -47,6 +47,8 @@ public final class UI{
 
     private static void setControls() {
         comps.getButton("Find").setOnAction(UIControls.findNthRoot);
+        comps.getTextField("Nthroot").setOnMouseClicked(UIControls.clear("Nthroot"));
+        comps.getTextField("Number").setOnMouseClicked(UIControls.clear("Number"));
     }
 
     public static UIComponents getComponents() {
