@@ -23,6 +23,14 @@ public final class UI{
         declareComponentsAndSetProperties();
         setControls();
         setLayout();
+        mainPane.setGridLinesVisible(SHOWGRIDLINES); // debug stuff
+        mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
+        mainPane.setHgap(HGAP);
+        mainPane.setVgap(VGAP);
+        primaryStage.setTitle("Find nth Root");
+        primaryStage.setResizable(RESIZABLE);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     private static void declareComponentsAndSetProperties() {
