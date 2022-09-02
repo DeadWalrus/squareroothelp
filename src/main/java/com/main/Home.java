@@ -11,20 +11,23 @@ import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
 public class Home extends Application implements UserInterface{
-    private final int MAX_HEIGHT = 100;
-    private final int MAX_WIDTH = 200;
-    private final int HGAP = 10;
-    private final int VGAP = 10;
-    private final boolean SHOWGRIDLINES = false;
-    private final boolean RESIZEABLE = false;
-    private GridPane homePane = new GridPane();
-    private UIComponents comps = new UIComponents();
-    private static Stage stage = null;
+
+
     public static void main(String[] args) {
         launch(args);
     }
 
+    private static final UIComponents comps = new UIComponents();
+    private static final GridPane homePane = new GridPane();
     public void start(Stage primaryStage) {
+        final int MAX_HEIGHT = 100;
+        final int MAX_WIDTH = 200;
+        final int HGAP = 10;
+        final int VGAP = 10;
+        final boolean SHOWGRIDLINES = false;
+        final boolean RESIZEABLE = false;
+
+        Stage stage;
         declareComponentsAndSetProperties();
         setControls();
         setLayout();
@@ -42,20 +45,19 @@ public class Home extends Application implements UserInterface{
     @Override
     public void setLayout() {
         homePane.add(comps.getButton("faps"), 0, 0);
-        
+        homePane.add(comps.getButton("nth root"), 0, 1);
     }
 
     @Override
     public void declareComponentsAndSetProperties() {
         comps.newButton("faps");
-        
+        comps.newButton("nth root");
     }
 
     @Override
     public void setControls() {
-        comps.getButton("faps").setOnAction((e) -> {
-            com.faps.UI.initUI();
-        });
-        
+        comps.getButton("faps").setOnAction((e) -> com.faps.UI.initUI());
+
+        comps.getButton("nth root").setOnAction((e) -> com.nthroot.UI.initUI());
     }
 }
