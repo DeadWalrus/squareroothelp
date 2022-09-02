@@ -20,9 +20,9 @@ class UIControls {
             instead of doing it all in lambda function
     */
     protected static EventHandler<ActionEvent> findFactorsAndPerfectSquares = (ActionEvent e) -> {
-        ArrayList<ArrayList<BigInteger>> factors = null;
-        ArrayList<BigInteger> squares = null;
-        BigInteger input = BigInteger.valueOf(0);
+        ArrayList<ArrayList<BigInteger>> factors;
+        ArrayList<BigInteger> squares;
+        BigInteger input;
 
         // Check if textField is empty
         if (comps.getTextField("Enter number").getText().equals("")) {
