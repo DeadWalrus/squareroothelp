@@ -63,9 +63,9 @@ class UIControls {
         }
 
         // Append perfect squares to text area
-        for (BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(squares.size())) < 0; i = i
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(BigInteger.valueOf(squares.size())) < 0; i = i
                 .add(BigInteger.ONE)) {
-            BigInteger square = squares.get(Integer.valueOf(i.toString()));
+            BigInteger square = squares.get(i.intValue());
             comps.getTextArea("Perfect Squares").appendText(square.toString());
             comps.getTextArea("Perfect Squares").appendText("  \u21D2  " + square.sqrt().toString());
             comps.getTextArea("Perfect Squares").appendText("\n");
