@@ -42,19 +42,19 @@ public class Home extends Application implements UserInterface{
         stage.show();
     }
 
-    @Override
+
     public void setLayout() {
         homePane.add(comps.getButton("faps"), 0, 0);
         homePane.add(comps.getButton("nth root"), 0, 1);
     }
 
-    @Override
+
     public void declareComponentsAndSetProperties() {
         comps.newButton("faps");
         comps.newButton("nth root");
     }
 
-    @Override
+
     public void setControls() {
         comps.getButton("faps").setOnAction((e) -> com.faps.UI.initUI());
 
