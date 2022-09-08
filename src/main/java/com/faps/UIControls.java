@@ -15,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 
 class UIControls {
     static UIComponents comps = UI.getComponents();
+    static final int ZERO = 0;
+    static final String PATTERN = "[^0-9]+";
 
     /*TODO: Make lambda call a function that finds the factors and perfect squares
             instead of doing it all in lambda function
@@ -50,21 +52,21 @@ class UIControls {
         comps.getTextArea("Perfect Squares").clear();
 
         // Append factors to text area
-        for (BigInteger i = BigInteger.valueOf(0); i.compareTo(BigInteger.valueOf(factors.size())) < 0; i = i
+        for (BigInteger i = BigInteger.valueOf(ZERO); i.compareTo(BigInteger.valueOf(factors.size())) < ZERO; i = i
+            .add(BigInteger.ONE)) {
+            for (BigInteger j = BigInteger.valueOf(ZERO); j.compareTo(BigInteger.valueOf(factors.get(ZERO).size())) < ZERO; j = j
                 .add(BigInteger.ONE)) {
-            for (BigInteger j = BigInteger.valueOf(0); j.compareTo(BigInteger.valueOf(factors.get(0).size())) < 0; j = j
-                    .add(BigInteger.ONE)) {
                 comps.getTextArea("Factors")
-                        .appendText(factors.get(i.intValue()).get(j.intValue()).toString());
-                if (j.compareTo(BigInteger.ZERO) == 0)
+                    .appendText(factors.get(i.intValue()).get(j.intValue()).toString());
+                if (j.compareTo(BigInteger.ZERO) == ZERO)
                     comps.getTextArea("Factors").appendText(", ");
             }
             comps.getTextArea("Factors").appendText("\n");
         }
 
         // Append perfect squares to text area
-        for (BigInteger i = BigInteger.ZERO; i.compareTo(BigInteger.valueOf(squares.size())) < 0; i = i
-                .add(BigInteger.ONE)) {
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(BigInteger.valueOf(squares.size())) < ZERO; i = i
+            .add(BigInteger.ONE)) {
             BigInteger square = squares.get(i.intValue());
             comps.getTextArea("Perfect Squares").appendText(square.toString());
             comps.getTextArea("Perfect Squares").appendText("  \u21D2  " + square.sqrt().toString());
@@ -76,7 +78,7 @@ class UIControls {
     // Clear text field if it contains only alpha characters
     protected static EventHandler<MouseEvent> textFieldClear = (MouseEvent e) -> {
         System.out.println(comps.getTextField("Enter number").getText());
-        if (Pattern.matches("[^0-9]+", comps.getTextField("Enter number").getText()))
+        if (Pattern.matches(PATTERN, comps.getTextField("Enter number").getText()))
             comps.getTextField("Enter number").clear();
     };
 }
