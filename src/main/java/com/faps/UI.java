@@ -24,10 +24,10 @@ public final class UI {
     private final static boolean RESIZABLE = false;
     private final static File icon = new File("resources/mono-math-sqrt.png");
     private final static Image iconImage = new Image(icon.toURI().toString());
-    private static GridPane mainPane = new GridPane();
-    private static UIComponents comps = new UIComponents();
-    private static Scene scene = new Scene(mainPane);
-    private static Stage primaryStage = new Stage();
+    private static final GridPane mainPane = new GridPane();
+    private static final UIComponents comps = new UIComponents();
+    private static final Scene scene = new Scene(mainPane);
+    private static final Stage primaryStage = new Stage();
 
     public static void initUI() {
         declareComponentsAndSetProperties();
