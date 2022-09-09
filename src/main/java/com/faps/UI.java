@@ -16,11 +16,11 @@ public final class UI {
 
     private final static int MAX_HEIGHT = 500;
     private final static int MAX_WIDTH = 500;
-    private final static int HGAP = 10;
-    private final static int VGAP = 10;
-    private final static int TEXTHEIGHT = 400;
-    private final static int TEXTWIDTH = 200;
-    private final static boolean SHOWGRIDLINES = false;
+    private final static int H_GAP = 10;
+    private final static int V_GAP = 10;
+    private final static int TEXT_HEIGHT = 400;
+    private final static int TEXT_WIDTH = 200;
+    private final static boolean SHOW_GRIDLINES = false;
     private final static boolean RESIZABLE = false;
     private final static File icon = new File("resources/mono-math-sqrt.png");
     private final static Image iconImage = new Image(icon.toURI().toString());
