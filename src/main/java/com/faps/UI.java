@@ -33,10 +33,10 @@ public final class UI {
         declareComponentsAndSetProperties();
         setControls();
         setLayout();
-        mainPane.setGridLinesVisible(SHOWGRIDLINES); // debug stuff
+        mainPane.setGridLinesVisible(SHOW_GRIDLINES); // debug stuff
         mainPane.setMinSize(MAX_WIDTH, MAX_HEIGHT);
-        mainPane.setHgap(HGAP);
-        mainPane.setVgap(VGAP);
+        mainPane.setHgap(H_GAP);
+        mainPane.setVgap(V_GAP);
         primaryStage.getIcons().add(iconImage);
         primaryStage.setTitle("Factor and Perfect Square Finder");
         primaryStage.setResizable(RESIZABLE);
@@ -45,7 +45,7 @@ public final class UI {
     }
 
     // Set the layout of the gui
-    
+
     public static void setLayout() {
 
         mainPane.add(comps.getButton("Find"), 1, 0);
@@ -58,7 +58,7 @@ public final class UI {
     }
 
     // Declare the components and their properties
-    
+
     public static void declareComponentsAndSetProperties() {
         comps.newButton("Find");
         comps.newLabel("Enter Number");
@@ -67,12 +67,12 @@ public final class UI {
         comps.newLabel("Perfect squares");
         comps.newTextArea("Factors");
         comps.newTextArea("Perfect Squares");
-        comps.getTextArea("Factors").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
-        comps.getTextArea("Perfect Squares").setPrefSize((double) TEXTWIDTH, (double) TEXTHEIGHT);
+        comps.getTextArea("Factors").setPrefSize( TEXT_WIDTH,  TEXT_HEIGHT);
+        comps.getTextArea("Perfect Squares").setPrefSize( TEXT_WIDTH, TEXT_HEIGHT);
     }
 
     // Set the actions for elements when interacted with
-    
+
     public static void setControls() {
         comps.getButton("Find").setOnAction(UIControls.findFactorsAndPerfectSquares);
         comps.getTextField("Enter number").setOnMouseClicked(UIControls.textFieldClear);
@@ -83,7 +83,7 @@ public final class UI {
         return comps;
     }
 
-    public static Scene getScene() {
-        return scene;
-    }
+//    public static Scene getScene() {
+//        return scene;
+//    }
 }
