@@ -13,6 +13,10 @@ class Faps {
     /*
      * Find the factors of num and return an array containing those factors
      */
+    private static final int ZERO = 0;
+    private static final BigInteger BIGINT_ZERO = BigInteger.valueOf(ZERO);
+    private static final int ONE = 1;
+    private static final BigInteger BIGINT_ONE = BigInteger.valueOf(ONE);
     protected static ArrayList<ArrayList<BigInteger>> findFactors(BigInteger num) {
         System.out.println(num);
         ArrayList<ArrayList<BigInteger>> factors = new ArrayList<ArrayList<BigInteger>>();
