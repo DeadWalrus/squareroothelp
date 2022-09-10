@@ -13,11 +13,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class UIComponents {
-    
-    private HashMap<String, Button> buttons = null;
-    private HashMap<String, Label> labels = null;
-    private HashMap<String, TextField> textFields = null;
-    private HashMap<String, TextArea> textAreas = null;
+
+    private final HashMap<String, Button> buttons;
+    private final HashMap<String, Label> labels;
+    private final HashMap<String, TextField> textFields;
+    private final HashMap<String, TextArea> textAreas;
 
     public UIComponents() {
         this.buttons = new HashMap<>();
