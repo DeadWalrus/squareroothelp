@@ -18,16 +18,16 @@ import javafx.scene.layout.GridPane;
  */
 public final class UI {
 
-    private final static int MAX_HEIGHT = 500;
-    private final static int MAX_WIDTH = 500;
-    private final static int H_GAP = 10;
-    private final static int V_GAP = 10;
-    private final static int TEXT_HEIGHT = 400;
-    private final static int TEXT_WIDTH = 200;
-    private final static boolean SHOW_GRIDLINES = false;
-    private final static boolean RESIZABLE = false;
-    private final static File icon = new File("resources/mono-math-sqrt.png");
-    private final static Image iconImage = new Image(icon.toURI().toString());
+    private static final int MAX_HEIGHT = 500;
+    private static final int MAX_WIDTH = 500;
+    private static final int H_GAP = 10;
+    private static final int V_GAP = 10;
+    private static final int TEXT_HEIGHT = 400;
+    private static final int TEXT_WIDTH = 200;
+    private static final boolean SHOW_GRIDLINES = false;
+    private static final boolean RESIZABLE = false;
+    private static final File icon = new File("resources/mono-math-sqrt.png");
+    private static final Image iconImage = new Image(icon.toURI().toString());
     private static final GridPane mainPane = new GridPane();
     private static final UIComponents comps = new UIComponents();
     private static final Scene scene = new Scene(mainPane);
