@@ -20,8 +20,8 @@ class Faps {
     protected static ArrayList<ArrayList<BigInteger>> findFactors(BigInteger num) {
         System.out.println(num);
         ArrayList<ArrayList<BigInteger>> factors = new ArrayList<>();
-
-        for (BigInteger i = BIGINT_ONE; num.sqrt().compareTo(i) >= ZERO; i = i.add(BIGINT_ONE)) {
+        BigInteger sqrt = num.sqrt();
+        for (BigInteger i = BIGINT_ONE; sqrt.compareTo(i) >= ZERO; i = i.add(BIGINT_ONE)) {
             if (num.mod(i).equals(BIGINT_ZERO)) {
                 if (factors.size() >= ONE) {
                     if (i.equals(factors.get(factors.size() - ONE).get(ONE))
