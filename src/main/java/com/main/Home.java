@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.layout.GridPane;
 
-public class Home extends Application implements UserInterface{
+public class Home extends Application{
 
 
     public static void main(String[] args) {
