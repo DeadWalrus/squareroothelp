@@ -1,7 +1,6 @@
 package com.main;
 
 import com.uicomponents.UIComponents;
-import com.interfaces.UserInterface;
 
 
 import javafx.application.Application;
